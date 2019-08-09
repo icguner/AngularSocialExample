@@ -1,0 +1,37 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div  id="profileSettings" *ngIf="isLoading">
+<div class="ProfileLeft">
+    <form id="update-form" #form="ngForm" role="form">
+        <div class="form-group">
+            <label for="userCity">City : </label>
+            <input type="text" name="city" [ngModel]="userInfo.city">    
+        </div>
+        <div class="form-group">
+            <label for="userCity">Country :</label>
+            <input type="text" name="country" [ngModel]="userInfo.country">    
+        </div>
+        <div class="form-group">
+            <label for="userCity">Address : </label>
+            <input type="text" name="address" [ngModel]="userInfo?.address">    
+        </div>
+        <div class="form-group">
+            <label for="userGender">Gender : </label>
+            <select name="gender" [ngModel]="userInfo?.gender" >
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input (click)="updateProfile(form)" type="submit" name="update-submit" id="update-submit" tabindex="5" class="form-control btn-register" value="Guncelle">
+        </div>    
+    </form>
+</div>
+<div class="ProfileLeft">
+    <div class="avatarimg">
+        <img src="http://127.0.0.1:8000/img/{{userAvatar}}" alt="">
+    </div>
+    <form id="update-avatar" method="POST" enctype="multipart/form-data">
+    <input type="file" (change)="updateAvatar($event)" placeholder="Upload file" accept=".jpg,.png">
+</form>
+</div>
+</div>

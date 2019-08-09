@@ -1,0 +1,18 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div id="loginPanel">
+<form id="login-form" method="post" role="form" style="display: block;">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="name" name="name" id="name" tabindex="1" class="form-control" placeholder="Email" value="">
+  </div>
+  <div class="form-group">
+    <input type="password" [(ngModel)]="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <input (click)="login()" type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+      </div>
+    </div>
+  </div>
+</form>
+</div>

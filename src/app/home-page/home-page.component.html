@@ -1,0 +1,30 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="inputFields">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="inputTitle">
+            <label for="Title">Title</label>
+            <input type="text" formControlName="title" name="title">
+        </div>
+        <div class="inputContext">
+            <label for="Context">Context</label>
+            <textarea  id="context" [froalaEditor] formControlName="formModel" [(froalaModel)]="form.formModel"></textarea>
+        </div>
+    </form>
+    <button class="form-control btn-register" (click)="onSubmit()">Gonder</button>
+</div>
+<div *ngFor="let item of this.wallData" class="wallPost">
+    <div id="postSection">
+        <div style="margin-left: 10px" class="postTitle">
+            <span style="font-weight: bold">{{item.title}}</span>
+        </div>
+        <div style="margin-left: 15px" [innerHTML]="item.context" class="postContext">
+            
+        </div>
+    </div>
+    <div id="detailSection">
+        <div style="margin-right: 10px">
+            {{item.date}}
+        </div>
+        <button [attr.data-sectionvalue]="item.id" (click)="likePost(item.id)" style="width: 95%;margin-bottom: 10px;" class="form-control btn-register">Like At {{item.like}}</button>
+        </div>
+</div>
